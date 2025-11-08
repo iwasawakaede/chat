@@ -68,7 +68,8 @@
       const form = document.getElementById("form");
       const input = document.getElementById("input");
       const messages = document.getElementById("messages");
-
+      
+      //送信ボタン押下でメッセージを送る(送信後は入力はクリアにする)
       form.addEventListener("submit", function(e) {
         e.preventDefault();
         if (input.value) {
@@ -76,7 +77,7 @@
           input.value = "";
         }
       });
-
+      //送ったメッセージを表示する
       socket.on("chat message", function(msg){
           let item = document.createElement("li");
           item.textContent = msg;

@@ -5,11 +5,12 @@ const server = http.createServer(app);
 const io = require("socket.io")(server);
 const PORT = 3000;
 
-//表示するファイル
+//表示するhtml
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
+//Socket.ioの設定
 io.on("connection", (socket) => {
   console.log("ユーザーが接続いたしました。");
   socket.on("chat message", (msg) => {
